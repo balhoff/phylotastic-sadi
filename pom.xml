@@ -7,7 +7,7 @@
   <packaging>war</packaging>
   <name>SADI services for Phylotastic</name>
   <build>
-    <finalName>sadi-services</finalName>
+    <finalName>phylotastic-sadi</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
