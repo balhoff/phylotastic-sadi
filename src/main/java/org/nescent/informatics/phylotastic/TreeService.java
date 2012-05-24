@@ -64,7 +64,7 @@ public class TreeService extends SimpleSynchronousServiceServlet {
 			final List<String> parentQueryBlocks = new ArrayList<String>();
 			final List<Statement> tips = tipsIterator.next();
 			for (Statement statement : tips) {
-				final String tipURI = statement.getObject().asResource().getURI();
+				final String tipURI = statement.getResource().getProperty(DC.subject).getResource().getURI();
 				ancestorQueryBlocks.add(String.format(ancestorQueryBody, tipURI));
 				parentQueryBlocks.add(String.format(parentQueryBody, tipURI));
 			}
@@ -101,9 +101,6 @@ public class TreeService extends SimpleSynchronousServiceServlet {
 					final Resource child = childIterator.next();
 					this.processNode(child, queryModel, outputModel, blankNode, tree);
 				}
-			}
-			if (children.size() < 1) {
-				outputModel.add(blankNode, DC.description, "tip");
 			}
 		}
 	}
